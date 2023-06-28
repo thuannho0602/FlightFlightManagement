@@ -234,6 +234,9 @@
         }
       },
       "FlightManagement.Entity/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "6.0.0"
+        },
         "runtime": {
           "FlightManagement.Entity.dll": {}
         }

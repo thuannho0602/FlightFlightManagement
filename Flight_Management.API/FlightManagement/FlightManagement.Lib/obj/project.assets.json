@@ -4178,11 +4178,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Flight_Management.API\\FlightManagement\\FlightManagement.Lib\\FlightManagement.Lib.csproj",
+      "projectUniqueName": "D:\\C#\\FlightFlightManagement\\Flight_Management.API\\FlightManagement\\FlightManagement.Lib\\FlightManagement.Lib.csproj",
       "projectName": "FlightManagement.Lib",
-      "projectPath": "D:\\Flight_Management.API\\FlightManagement\\FlightManagement.Lib\\FlightManagement.Lib.csproj",
+      "projectPath": "D:\\C#\\FlightFlightManagement\\Flight_Management.API\\FlightManagement\\FlightManagement.Lib\\FlightManagement.Lib.csproj",
       "packagesPath": "C:\\Users\\AD\\.nuget\\packages\\",
-      "outputPath": "D:\\Flight_Management.API\\FlightManagement\\FlightManagement.Lib\\obj\\",
+      "outputPath": "D:\\C#\\FlightFlightManagement\\Flight_Management.API\\FlightManagement\\FlightManagement.Lib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
