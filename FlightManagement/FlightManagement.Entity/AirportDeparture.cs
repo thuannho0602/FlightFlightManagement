@@ -14,5 +14,9 @@ namespace FlightManagement.Entity
         public int Id { get; set; }
         public string Code { get; set; }
         public string NameAirportDeparture { get; set; }
+
+
+        //
+        public ICollection<Flight> Flights { get; set; }
     }
 }

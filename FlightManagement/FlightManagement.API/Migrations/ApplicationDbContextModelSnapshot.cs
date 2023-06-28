@@ -64,6 +64,43 @@ namespace FlightManagement.API.Migrations
                     b.ToTable("ArrivalAirport");
                 });
 
+            modelBuilder.Entity("FlightManagement.Entity.Flight", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AirportDepartureId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArrivalAirportId")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("DepartureTime")
+                        .HasColumnType("time");
+
+                    b.Property<int>("PlaneId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Time")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AirportDepartureId");
+
+                    b.HasIndex("ArrivalAirportId");
+
+                    b.HasIndex("PlaneId");
+
+                    b.ToTable("Flight");
+                });
+
             modelBuilder.Entity("FlightManagement.Entity.Plane", b =>
                 {
                     b.Property<int>("Id")
@@ -293,6 +330,33 @@ namespace FlightManagement.API.Migrations
                     b.ToTable("User_Token", (string)null);
                 });
 
+            modelBuilder.Entity("FlightManagement.Entity.Flight", b =>
+                {
+                    b.HasOne("FlightManagement.Entity.AirportDeparture", "AirportDeparture")
+                        .WithMany("Flights")
+                        .HasForeignKey("AirportDepartureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FlightManagement.Entity.ArrivalAirport", "ArrivalAirport")
+                        .WithMany("Flights")
+                        .HasForeignKey("ArrivalAirportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FlightManagement.Entity.Plane", "Plane")
+                        .WithMany("Flights")
+                        .HasForeignKey("PlaneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AirportDeparture");
+
+                    b.Navigation("ArrivalAirport");
+
+                    b.Navigation("Plane");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
@@ -342,6 +406,21 @@ namespace FlightManagement.API.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FlightManagement.Entity.AirportDeparture", b =>
+                {
+                    b.Navigation("Flights");
+                });
+
+            modelBuilder.Entity("FlightManagement.Entity.ArrivalAirport", b =>
+                {
+                    b.Navigation("Flights");
+                });
+
+            modelBuilder.Entity("FlightManagement.Entity.Plane", b =>
+                {
+                    b.Navigation("Flights");
                 });
 #pragma warning restore 612, 618
         }

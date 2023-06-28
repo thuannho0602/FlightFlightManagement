@@ -46,6 +46,10 @@ builder.Services.AddScoped<IAirportDepartureServices, AirportDepartureServices>(
 builder.Services.AddTransient<IArrivalAirportRepository, ArrivalAirportRepository>();
 builder.Services.AddScoped<IArrivalAirportServices, ArrivalAirportServices>();
 
+builder.Services.AddTransient<IFlightRepository, FlightRepository>();
+builder.Services.AddScoped<IFlightServices, FlightServices>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
