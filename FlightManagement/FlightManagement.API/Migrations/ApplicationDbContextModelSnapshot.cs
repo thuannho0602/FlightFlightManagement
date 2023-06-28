@@ -43,6 +43,27 @@ namespace FlightManagement.API.Migrations
                     b.ToTable("AirportDeparture");
                 });
 
+            modelBuilder.Entity("FlightManagement.Entity.ArrivalAirport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameArrivalAirport")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ArrivalAirport");
+                });
+
             modelBuilder.Entity("FlightManagement.Entity.Plane", b =>
                 {
                     b.Property<int>("Id")
