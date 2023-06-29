@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlightManagement.Model.BookAPlace
+namespace FlightManagement.Model.HoldSeat
 {
-    public class BookAPlaceGetRequest
+    public class HoldSeatRequest
     {
-        public int Id { get; set; }
-        public string CodePlace { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? ReturnDay { get; set; }
         public int FlightID { get; set; }
-        public int ClientID { get; set; }
+
+    }
+    public class HoldSeatInfo
+    {
+        public string CodePlace { get; set; }
     }
 }
