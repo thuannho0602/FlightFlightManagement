@@ -64,6 +64,62 @@ namespace FlightManagement.API.Migrations
                     b.ToTable("ArrivalAirport");
                 });
 
+            modelBuilder.Entity("FlightManagement.Entity.BookAPlace", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ClientID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FlightID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ReturnDay")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookAPlace");
+                });
+
+            modelBuilder.Entity("FlightManagement.Entity.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Sex")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Client");
+                });
+
             modelBuilder.Entity("FlightManagement.Entity.Flight", b =>
                 {
                     b.Property<int>("Id")
@@ -99,6 +155,26 @@ namespace FlightManagement.API.Migrations
                     b.HasIndex("PlaneId");
 
                     b.ToTable("Flight");
+                });
+
+            modelBuilder.Entity("FlightManagement.Entity.HoldtheSeat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("BookAPlaceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CodePlace")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HoldtheSeat");
                 });
 
             modelBuilder.Entity("FlightManagement.Entity.Plane", b =>
